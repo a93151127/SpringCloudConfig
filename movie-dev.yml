@@ -1,0 +1,29 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: SpringCloudMovie
+eureka:
+  client:
+    register-with-eureka: true # 作为客户端需要注册到Eureka
+    fetch-registry: true  # 作为客户端需要从Eureka获取注册信息
+    service-url:  # 客户端注册地址
+      defaultZone: http://127.0.0.1:8888/eureka
+    #修改提供方获取注册信息的间隔时间
+    registry-fetch-interval-seconds: 5
+  instance:
+    # 优先使用该服务的IP地址注册到Eureka，在生产环境建议改为true
+    prefer-ip-address: true
+    # 修改续约间隔时间
+    lease-renewal-interval-in-seconds: 5
+    # 修改服务失效时间
+    lease-expiration-duration-in-seconds: 10
+# 修改Ribbon的负载均衡算法
+#SpringCloudUser: # 這裡的名稱是服務提供者application.yml裡的spring.application.name
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 這是 隨機負載均衡方法
+
+# 开启Hystrix
+feign:
+  hystrix:
+    enabled: true
