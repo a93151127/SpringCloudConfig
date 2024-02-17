@@ -5,7 +5,7 @@ spring:
     name: SpringCloudUser
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://localhost:1433;database=springcloud
+    url: jdbc:sqlserver://localhost:1433;database=springcloudBus
     username: sa
     password: 123456
   jpa:
